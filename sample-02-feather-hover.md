@@ -15,7 +15,7 @@ Triggers a lightweight SVG-based animation when the user hovers over a button, e
 - Reusable logic structure for any similar UI trigger.
 - Attention to UX polish via animation lifecycle handling.
 
-"### What I would change about it:
+### What I would change about it:
 - The class name 'button' as a JavaScript hook? Guilty. It’s a semantic faux pas I wouldn't repeat—I’d go with something more modular and BEM-aligned, like spotbtn--posh.
 - Using 'plumage' as the trigger class was a bit too on-the-beak. It describes what the animation looks like, not what it does behaviorally. A more fitting name would be something like animstart or motion-ready—keeping it scoped to behavior, not aesthetics.
 - The @keyframes name 'omni' was inherited from a different project where it made contextual sense. For this feather-flipping vibe, something like featherfly1 and featherfly2 would land more semantically.
