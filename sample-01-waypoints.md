@@ -5,15 +5,15 @@ A reusable function leverages Waypoints.js to dynamically toggle attributes base
 [Live Example](ranjbarorthodontics.com)
 
 ### Why it matters:
-Provides intelligent scroll-triggered interactions.
-Animations enhance visual engagement without disrupting performance.
-Includes a development pattern with an easily enabled production-ready toggle.
-Modular, reusable, and adaptable to different selectors or classnames.
+- Provides intelligent scroll-triggered interactions.
+- Animations enhance visual engagement without disrupting performance.
+- Includes a development pattern with an easily enabled production-ready toggle.
+- Modular, reusable, and adaptable to different selectors or classnames.
 
 ### What it shows:
-Scalable logic for scroll-triggered interactions.
-Sensible separation of dev/testing behavior from production mode.
-Thoughtful use of conditional device-width targeting.
+- Scalable logic for scroll-triggered interactions.
+- Sensible separation of dev/testing behavior from production mode.
+- Thoughtful use of conditional device-width targeting.
 
 ### Excerpt:
 ```javascript
