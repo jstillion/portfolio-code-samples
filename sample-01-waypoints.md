@@ -1,21 +1,21 @@
-Sample 1: Scroll-Activated State Triggers (JavaScript Waypoints)
-
-Live Example: ranjbarorthodontics.com
+## Sample 1: Scroll-Activated State Triggers *(JavaScript Waypoints)*
 
 A reusable function leverages Waypoints.js to dynamically toggle attributes based on scroll position, enabling staged animations for each homepage section. The script is built to support development repeatability and gracefully fallback (albeit manual) for launch.
 
-Why it matters:
+[Live Example](ranjbarorthodontics.com)
+
+### Why it matters:
 Provides intelligent scroll-triggered interactions.
 Animations enhance visual engagement without disrupting performance.
 Includes a development pattern with an easily enabled production-ready toggle.
 Modular, reusable, and adaptable to different selectors or classnames.
 
-What it shows:
+### What it shows:
 Scalable logic for scroll-triggered interactions.
 Sensible separation of dev/testing behavior from production mode.
 Thoughtful use of conditional device-width targeting.
 
-Excerpt:
+### Excerpt:
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
 	let mql = window.matchMedia("(min-width: 1300px)");
@@ -44,6 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-Personal note:
+## Personal note:
 I use this on virtually every site I build-HS1 clients consistently request expressive entrance animations running down the homepage. I’ve found Waypoints to be the most reliable light-weight mechanism for triggering bespoke, on-time, on-screen animations. It’s also handy for lazy loading large scripts, deferring video files, or pausing CPU-heavy carousel animations when they’re off-screen. 
 Sure, libraries like wow.js, AOS, and others can provide basic scroll animations—but they don’t offer the level of control and customization this approach allows.
