@@ -8,7 +8,7 @@ Each snippet represents a working solution from live projects, emphasizing clari
 ---
 
 **Sample 1**  
-🎮 **Interactive Navigation Controller (JavaScript / Waypoints)**  
+🎮 **Scroll-Activated State Triggers (JavaScript / Waypoints)**  
 A reusable function leverages Waypoints.js to dynamically toggle attributes based on scroll position, enabling staged custom animations for successive homepage section.
 [→ View Sample 01](./sample-01-waypoints.md)
 
