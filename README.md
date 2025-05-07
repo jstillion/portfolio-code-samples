@@ -31,3 +31,18 @@ A templated PHP slideshow structure that’s fully accessible, maintainable, and
 📽️ **Responsive Video Publisher (LESS / CSS Architecture)**  
 A flexible video container system that uses just four inputs to automate aspect-ratio handling, breakpoint logic, and CLS-friendly layout scaling. Smart, reusable, and adaptable to any custom design.
 [→ View Sample 05](./sample-05-fluid-video-hero.md)
+
+---
+
+> “Good design, when done well, should be invisible.”  
+> — [Jared Spool](https://jmspool.medium.com/)
+
+---
+
+What you’ll find here isn’t a comprehensive showcase of everything I can do—rather, it’s a curated set of examples that reflect how I think. Some of it might not be flashy or complex (and frankly, if the code is calling attention to itself, something’s likely gone wrong). The real value? The absence of surprise. Predictability, in this context, is a feature, not a flaw.
+
+Like a box of chocolates—sure, there’s the familiar milk chocolate, the bold dark, even that weird one with the toothpaste filling 😆—and maybe a few you’ve never tasted. Each piece is deliberate.
+
+My hope is that these examples show how I start by asking the right questions, focus on solving the right problems, and build solutions that optimize for clarity, usability, and impact.
+
+Thanks for reading.
