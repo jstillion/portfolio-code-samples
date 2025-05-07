@@ -3,6 +3,7 @@
 This dynamic slideshow structure leverages PHP arrays to automate slide generation while embedding accessibility and image performance best practices by default. It enables junior developers or non-technical collaborators to add or rearrange slides using a copy-paste array structure, without wading into layout logic or template code. The live example has slightly different features (evidence of it's versatility) but it utilizes the same base;
 
 [Live Example: before-after slideshow](https://www.kathycosmeticdentistry.com/#spot04)
+
 [Full Page](https://www.kathycosmeticdentistry.com/)
 
 ### Why it matters:
