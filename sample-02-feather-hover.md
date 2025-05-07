@@ -2,7 +2,7 @@
 
 Triggers a lightweight SVG-based animation when the user hovers over a button, ensuring the animation plays through completely—even on rapid hover in/out events. Designed with flexibility and graceful fallback behavior.
 
-[Live Example](https://www.atlantapds.com/)
+<a href="https://www.atlantapds.com/" target="_blank" rel="noreferrer noopener">Live Example</a>
 
 ### Why it matters:
 - Enhances interaction without degrading performance.
