@@ -45,5 +45,5 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 
 ## Personal note:
-I use this on virtually every site I build-HS1 clients consistently request expressive entrance animations running down the homepage. I’ve found Waypoints to be the most reliable light-weight mechanism for triggering bespoke, on-time, on-screen animations. It’s also handy for lazy loading large scripts, deferring video files, or pausing CPU-heavy carousel animations when they’re off-screen. 
+I use this on virtually every site I build-Sesame clients consistently request expressive entrance animations running down the homepage. I’ve found Waypoints to be the most reliable light-weight mechanism for triggering bespoke, on-time, on-screen animations. It’s also handy for lazy loading large scripts, deferring video files, or pausing CPU-heavy carousel animations when they’re off-screen. 
 Sure, libraries like wow.js, AOS, and others can provide basic scroll animations—but they don’t offer the level of control and customization this approach allows.
