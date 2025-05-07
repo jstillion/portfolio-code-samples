@@ -2,7 +2,7 @@
 
 A reusable function leverages Waypoints.js to dynamically toggle attributes based on scroll position, enabling staged animations for each homepage section. The script is built to support development repeatability and gracefully fallback (albeit manual) for launch.
 
-[Live Example] (https://www.ranjbarorthodontics.com/)
+[Live Example](https://www.ranjbarorthodontics.com/)
 
 ### Why it matters:
 - Provides intelligent scroll-triggered interactions.
