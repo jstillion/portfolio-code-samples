@@ -13,9 +13,9 @@ A reusable function leverages Waypoints.js to dynamically toggle attributes base
 [→ View Sample 01](./sample-01-waypoints.md)
 
 **Sample 2**  
-🖼️ **Accessible Before/After Image Slider (JS / HTML / CSS)**  
-A custom, accessible before/after slider template utilizing trusty cycle2. Designed with progressive enhancement and optimized for both mouse and keyboard navigation. Elegant and lightweight.
-[→ View Sample 02](./sample-02-before-after.md)
+🖼️ **Feather Hover Animation (CSS + JavaScript)**  
+A lightweight SVG-based animation when the user hovers over a button, ensuring the animation plays through completely—even on rapid hover in/out events. Designed with flexibility and graceful fallback behavior.
+[→ View Sample 02](./sample-02-feather-hover.md)
 
 **Sample 3**  
 🎩 **Smart Asset Loader (PHP)**  
