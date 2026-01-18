@@ -1,35 +1,36 @@
 # portfolio-code-samples
-A curated selection of real-world code samples demonstrating my approach to accessible, fast-loading, and creatively engineered front-end development.
 
-This repo contains code samples and interface logic used across various sites I’ve developed. Each folder or file includes a brief explanation and live example links where applicable.
+A curated selection of real-world front-end solutions focused on accessibility, performance correctness, and long-term maintainability.
 
-Each snippet represents a working solution from live projects, emphasizing clarity, modularity, and maintainability across HTML, CSS (LESS), JavaScript, and PHP templates.
+This repository contains production code patterns and interface logic used across live projects. Each sample includes brief context, decision rationale, and (where applicable) links to working examples.
+
+The emphasis here is not on novelty, but on predictability: solutions that behave consistently, degrade gracefully, and remain editable as requirements change. The code favors semantic structure, modularity, and clarity across HTML, CSS (LESS), JavaScript, and PHP templating.
 
 ---
 
-**Sample 1**  
-🎮 **Scroll-Activated State Triggers (JavaScript / Waypoints)**  
-A reusable function leverages Waypoints.js to dynamically toggle attributes based on scroll position, enabling staged custom animations for successive homepage section.
+## Sample 1  
+**Scroll-Activated State Triggers (JavaScript / Waypoints)**  
+A reusable pattern for toggling attributes based on scroll position, enabling staged animations across successive sections without tight coupling. Designed to avoid timing assumptions and brittle state management.  
 [→ View Sample 01](./sample-01-waypoints.md)
 
-**Sample 2**  
-🖼️ **Feather Hover Animation (CSS + JavaScript)**  
-A lightweight SVG-based animation when the user hovers over a button, ensuring the animation plays through completely—even on rapid hover in/out events. Designed with flexibility and graceful fallback behavior.
+## Sample 2  
+**Feather Hover Animation (SVG / CSS / JavaScript)**  
+A lightweight hover interaction that guarantees animation completion even under rapid hover in/out conditions. The implementation prioritizes predictable behavior, flexible reuse, and graceful fallback over visual flourish.  
 [→ View Sample 02](./sample-02-feather-hover.md)
 
-**Sample 3**  
-🎩 **Smart Asset Loader (PHP)**  
-Conditional script/style loading for rarely used pages—keeping things lean where possible, and only loading what’s needed, when it’s needed. A subtle backend enhancement that boosts performance sitewide.
+## Sample 3  
+**Smart Asset Loader (PHP)**  
+Conditional script and style loading for low-frequency pages, reducing unnecessary payload while preserving editorial flexibility. A small structural change with site-wide performance impact.  
 [→ View Sample 03](./sample-03-smart-assets.md)
 
-**Sample 4**  
-♿ **Scalable Slideshow with Accessible Templating (PHP)**  
-A templated PHP slideshow structure that’s fully accessible, maintainable, and friendly to non-dev editors. Handles ARIA attributes, dynamic tab/tabpanel relationships, and lazy-loaded assets.
+## Sample 4  
+**Scalable Slideshow with Accessible Templating (PHP)**  
+An accessible slideshow pattern designed for non-developer content editors. Handles ARIA relationships, keyboard navigation, and lazy-loaded assets while remaining easy to extend and maintain.  
 [→ View Sample 04](./sample-04-a11y-for-all.md)
 
-**Sample 5**  
-📽️ **Responsive Video Publisher (LESS / CSS Architecture)**  
-A flexible video container system that uses just four inputs to automate aspect-ratio handling, breakpoint logic, and CLS-friendly layout scaling. Smart, reusable, and adaptable to any custom design.
+## Sample 5  
+**Responsive Video Publisher (LESS / CSS Architecture)**  
+A flexible video container system driven by a small set of inputs to manage aspect ratios, breakpoints, and CLS-safe layout behavior. Built to adapt across designs without per-instance customization.  
 [→ View Sample 05](./sample-05-fluid-video-hero.md)
 
 ---
@@ -39,10 +40,8 @@ A flexible video container system that uses just four inputs to automate aspect-
 
 ---
 
-What you’ll find here isn’t a comprehensive showcase of everything I can do—rather, it’s a curated set of examples that reflect how I think. Some of it might not be flashy or complex (and frankly, if the code is calling attention to itself, something’s likely gone wrong). The real value? The absence of surprise. Predictability, in this context, is a feature, not a flaw.
+What you’ll find here is not an exhaustive catalog of techniques, but a set of representative decisions. The goal in each case is to reduce surprise — for users, for editors, and for future developers. In this context, predictability is not a limitation; it’s a feature.
 
-Like a box of chocolates—sure, there’s the familiar milk chocolate, the bold dark, even that weird one with the toothpaste filling 😆—and maybe a few you’ve never tasted. Each piece is deliberate.
+If these examples feel understated, that’s intentional. When front-end code draws attention to itself, it’s often compensating for a deeper structural issue. The work here reflects how I approach interfaces: start with the constraints, make tradeoffs explicit, and choose solutions that remain stable as conditions change.
 
-My hope is that these examples show how I start by asking the right questions, focus on solving the right problems, and build solutions that optimize for clarity, usability, and impact.
-
-Thanks for reading.
+Thanks for taking a look.
