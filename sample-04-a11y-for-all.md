@@ -1,80 +1,73 @@
-## Sample 4: Scalable PHP-Driven Slideshow with Accessible Templating *(php)*
+## Sample 4: Scalable Slideshow with Accessible Templating  
+*(PHP)*
 
-This dynamic slideshow structure leverages PHP arrays to automate slide generation while embedding accessibility and image performance best practices by default. It enables junior developers or non-technical collaborators to add or rearrange slides using a copy-paste array structure, without wading into layout logic or template code. The live example has slightly different features (evidence of it's versatility) but it utilizes the same base;
+A templated slideshow pattern that embeds accessibility, performance, and structural consistency by default, while remaining editable by non-developers. Slide content is defined via a simple data structure, keeping layout logic, interaction behavior, and ARIA relationships centralized and stable.
 
-[Live Example: before-after slideshow](https://www.kathycosmeticdentistry.com/#spot04)
-
+[Live Example: Before/After Slideshow](https://www.kathycosmeticdentistry.com/#spot04)  
 [Full Page](https://www.kathycosmeticdentistry.com/)
 
-### Why it matters:
-- Eliminates redundant markup and hardcoded content.
-- Encourages consistent slide formatting and accessible interactions.
-- Enables fast updates and scaling with minimal developer effort.
-- Incorporates progressive enhancement and lazy loading.
+### Context
+The interface required a content-heavy slideshow that would evolve over time and be maintained by multiple contributors, not all of whom were comfortable editing complex markup.
 
-### What it shows:
-- Back-end logic that empowers non-dev collaborators to easily maintain the slideshow.
-- Best practices in accessibility: semantic HTML, aria-*, and role attributes.
-- Thoughtful, maintainable templating that balances flexibility with performance.
-- Developer-friendly commentary—annotated for easy understanding and scaling.
+### Constraint
+Slideshows tend to accumulate technical debt quickly: duplicated markup, inconsistent ARIA attributes, fragile tab/tabpanel relationships, and increasing risk of accessibility regressions as content changes.
 
+### Approach
+- Define slide content as a simple, ordered data structure.
+- Generate all markup, IDs, and relationships programmatically to ensure consistency.
+- Centralize ARIA roles, keyboard behavior, and interaction hooks.
+- Apply lazy loading and intrinsic sizing to control image cost and layout stability.
 
-### Excerpt:
+### Why this holds up
+- Prevents structural drift as slides are added, removed, or reordered.
+- Makes accessibility the default rather than an afterthought.
+- Allows non-developers to update content without touching interaction logic.
+- Scales cleanly without duplicating markup or introducing inconsistencies.
+
+### Representative excerpt
 ```php
 <?php
-	# Hey there, Captain Syntax! If you're adding, removing, or reordering slides — just remember:
-	# - Each slide is wrapped in [square brackets]
-	# - Each item inside needs "quotes" and a comma at the end (except the last one)
-	# - The whole $slides array ends with a mighty semicolon
-	# Your mission: keep the structure intact and the slideshow will obey!
-	# Slide responsibly [=
-?>
-<?php
+// Slide content lives in a single, ordered data structure.
+// Non-developers only edit this array — not the markup below.
 $slides = [
-	[
-		"topic" => "Topic1", 
-		"info" => "...", 
-		"href" => "..."
-	],
-	[
-		"topic" => "Topic2", 
-		"info" => "...", 
-		"href" => "..."
-	],
-	[
-		"topic" => "Topic3", 
-		"info" => "...", 
-		"href" => "..."
-	]
+  [
+	"topic" => "Topic1",
+	"info"  => "...",
+	"href"  => "..."
+  ],
+  [
+	"topic" => "Topic2",
+	"info"  => "...",
+	"href"  => "..."
+  ],
+  [
+	"topic" => "Topic3",
+	"info"  => "...",
+	"href"  => "..."
+  ]
 ];
 ?>
 
 <div class="cycle-slideshow"
-  data-cycle-fx="scrollHorz"
   data-cycle-timeout="0"
   data-cycle-pager=".spot02pager"
-  data-cycle-pager-template='<button class="spotbtn spotbtn__pager" role="tab" type="button" aria-controls="service{{slideNum}}" aria-label="information about our {{topic}}"><h3 class="topic">{{topic}}</h3></button>'
-  data-cycle-slides="> div"
-  data-cycle-log=false
-  >
+  data-cycle-pager-template='<button role="tab" aria-controls="service{{slideNum}}">{{topic}}</button>'
+  data-cycle-slides="> div">
 
-<?php foreach ($slides as $index => $slide): 
-	  $num = $index + 1;
-	  $imgPath = "/assets/images/spotlight/spot02dec0{$num}.jpg";
+<?php foreach ($slides as $index => $slide):
+  $num = $index + 1;
 ?>
-  <div id="service<?= $num ?>" class="slide<?= $num ?>" data-topic="<?= $slide['topic'] ?>" role="tabpanel">
-	<img class="decoration" src="<?= $imgPath ?>" alt="" width="939" height="751" loading="lazy" decoding="async">
-	<div class="info">
-		<h2 class="topic"><?= $slide['topic'] ?></h2>
-		<div class="info__mod"><?= $slide['info'] ?></div>
-		<a class="spotbtn spotbtn__info" href="<?= $slide['href'] ?>">Keep Exploring<span class="screenreader"> information about <?= $slide['topic'] ?></span></a>
-	</div>
+  <div id="service<?= $num ?>" role="tabpanel">
+	<h2><?= $slide['topic'] ?></h2>
+	<div><?= $slide['info'] ?></div>
+	<a href="<?= $slide['href'] ?>">Keep Exploring</a>
   </div>
 <?php endforeach; ?>
 </div>
 
-<div class="mod mod--pager spot02pager" role="tablist" aria-label="Service Navigation Tabs"><!-- EMPTY ELEMENT FOR DYNAMICALLY GENERATED PAGER ITEMS --></div>
+<div class="spot02pager" role="tablist"></div>
 ```
 
-## Personal note:
-One of the challenges with slideshows—even when they’re well-structured—is the potential for things to get spaghetti quick. Between the ARIA attributes, interactive hooks, and nested classes, the markup can easily become overwhelming—especially for junior devs or non-coders who might need to edit it. The goal here was to create a readable, manageable abstraction that lets anyone add, remove, or reorder slides without diving into the technical weeds—or worrying about the order of things.
+### Notes
+
+This pattern shifts slideshow maintenance from a markup problem to a data-entry task. The primary benefit is not flexibility for its own sake, but reliability: as content changes hands and requirements evolve, the structure remains accessible, predictable, and resistant to regression.
