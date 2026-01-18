@@ -1,42 +1,53 @@
-## Sample 2: Feather Hover Animation *(CSS + JavaScript)*
+## Sample 2: Feather Hover Animation  
+*(SVG / CSS / JavaScript)*
 
-Triggers a lightweight SVG-based animation when the user hovers over a button, ensuring the animation plays through completely—even on rapid hover in/out events. Designed with flexibility and graceful fallback behavior.
+A small interaction pattern designed to ensure animation completion independent of hover duration. Rather than binding motion directly to hover state, the animation is triggered once and allowed to resolve fully, avoiding abrupt resets during rapid pointer movement.
+
+The goal here is not visual flourish, but interaction predictability.
 
 <a href="https://www.atlantapds.com/" target="_blank" rel="noreferrer noopener">Live Example</a>
 
-### Why it matters:
-- Enhances interaction without degrading performance.
-- Carefully handles animation timing (via handleAnimationEnd event) to avoid jarring transitions/resetting.
-- Easily reusable thanks to querySelectorAll targeting flexibility.
-- Allows for semantic HTML separation (animation is purely presentational).
+### Context
+The interface required a lightweight hover affordance that felt deliberate and finished, even when user input was brief or inconsistent.
 
-### What it shows:
-- Clean, purposeful micro-interactions.
-- Reusable logic structure for any similar UI trigger.
-- Attention to UX polish via animation lifecycle handling.
+### Constraint
+Hover-driven animations often reset prematurely, producing jittery or incomplete motion that feels accidental rather than intentional — especially during rapid in/out interactions.
 
-### What I would change about it:
-- The class name 'button' as a JavaScript hook? Guilty. It’s a semantic faux pas I wouldn't repeat—I’d go with something more modular and BEM-aligned, like spotbtn--posh.
-- Using 'plumage' as the trigger class was a bit too on-the-beak. It describes what the animation looks like, not what it does behaviorally. A more fitting name would be something like animstart or motion-ready—keeping it scoped to behavior, not aesthetics.
-- The @keyframes name 'omni' was inherited from a different project where it made contextual sense. For this feather-flipping vibe, something like featherfly1 and featherfly2 would land more semantically.
+### Approach
+- Trigger animation via a transient state class rather than continuous hover.
+- Allow the animation lifecycle to complete independently of pointer position.
+- Keep the interaction purely presentational, with no impact on document semantics or layout.
 
-### Excerpts:
+### Why this holds up
+- Prevents partial or interrupted animation states.
+- Produces consistent behavior regardless of user input speed.
+- Keeps interaction logic reusable and decoupled from markup structure.
+- Degrades cleanly if animation is unsupported or removed.
+
+### Evaluation notes
+If revisiting this today, I would make several naming and structural refinements:
+- Avoid generic class hooks like `.button` in favor of behavior-scoped selectors.
+- Use behavior-oriented class names (e.g., `anim-start`) rather than descriptive ones tied to appearance.
+- Align keyframe naming with intent rather than inherited project context.
+
+These aren’t functional issues, but they matter for long-term clarity when patterns are reused or handed off.
+
+### Excerpts
 ---
-#### javascript:
+#### JavaScript
 ```javascript
 document.querySelectorAll('.button').forEach(function(element) {
-	
-	element.addEventListener('mouseover', function() { this.classList.add('plumage'); });
-	function handleAnimationEnd(event) { this.classList.remove('plumage'); }
-	
-	// Add event listener for different browser prefixes
-	element.addEventListener('animationend', handleAnimationEnd);
-	element.addEventListener('webkitAnimationEnd', handleAnimationEnd); // For Safari and older Chrome
-	element.addEventListener('oAnimationEnd', handleAnimationEnd); // For older Opera
+  element.addEventListener('mouseover', function() {
+	this.classList.add('plumage');
+  });
 
+  function handleAnimationEnd() {
+	this.classList.remove('plumage');
+  }
+
+  element.addEventListener('animationend', handleAnimationEnd);
 });
 ```
-
 #### LESS/CSS:
 ```less
 .plumage {
@@ -62,7 +73,6 @@ document.querySelectorAll('.button').forEach(function(element) {
 	}
 }
 ```
-
 #### CSS keyframes:
 ```css
 @keyframes omni1 {
@@ -78,6 +88,5 @@ document.querySelectorAll('.button').forEach(function(element) {
 .omni1 { animation: omni1 0.5s cubic-bezier(0.61, 1, 0.88, 1) forwards; }//before
 .omni2 { animation: omni2 0.5s cubic-bezier(0.61, 1, 0.88, 1) forwards; }//after
 ```
-
-## Personal note:
-There’s something about animations that complete after a hover event—rather than being bound strictly to the hover state—that really elevates the experience. This approach feels smoother, more intentional. I wish I’d landed on it sooner. The animated birds and their singing that also appear on the [Live Example](atlantapds.com) use similar methods, but I didn’t include those here—as they’re a bit more complex, requiring layered timing to feel natural.
+## Notes:
+This pattern has since informed other interactions where completion matters more than responsiveness — including timed visual cues and layered motion sequences. The takeaway is simple: interactions feel intentional when they finish what they start.
